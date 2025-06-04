@@ -5,9 +5,28 @@ It includes a simple integration with the `trdauto` backend API. The default API
 base URL is `http://localhost:5037/api` and can be changed in
 `src/environments/environment.ts`.
 
+## Prerequisites
+
+- Node.js **12.14** or newer (Node 14 is recommended)
+- [Angular CLI](https://angular.io/cli) **12.0.1** (`npm install -g @angular/cli@12`)
+
+## Installation
+
+Install the dependencies after cloning the repository:
+
+```bash
+npm install
+```
+
+## Changing API URLs
+
+The API base URL for development is set in `src/environments/environment.ts`.
+For production builds it is defined in `src/environments/environment.prod.ts`.
+Update these files to point the application to a different backend.
+
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm start` (or `ng serve`) for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
@@ -19,7 +38,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `npm test` (or `ng test`) to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## Running end-to-end tests
 
