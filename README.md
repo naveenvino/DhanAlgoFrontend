@@ -1,6 +1,9 @@
 # DhanAlgoFrontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.1.
+It includes a simple integration with the `trdauto` backend API. The default API
+base URL is `http://localhost:5037/api` and can be changed in
+`src/environments/environment.ts`.
 
 ## Development server
 

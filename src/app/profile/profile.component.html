@@ -1,0 +1,9 @@
+<h2>User Profile</h2>
+<div *ngIf="profile; else loading">
+  <p>Name: {{ profile.name }}</p>
+  <p>Email: {{ profile.email }}</p>
+  <p>Client ID: {{ profile.clientId }}</p>
+</div>
+<ng-template #loading>
+  <p>Loading...</p>
+</ng-template>
