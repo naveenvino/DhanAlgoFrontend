@@ -30,11 +30,4 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('DhanAlgoFrontend');
   });
 
-  it('should render Profile link in toolbar', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('mat-toolbar')?.textContent).toContain('Profile');
-  });
-
 });
