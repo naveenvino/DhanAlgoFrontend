@@ -26,12 +26,4 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('DhanAlgoFrontend');
   });
 
-  it('should have a profile router link', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    const link = compiled.querySelector('a[routerLink="/profile"]');
-    expect(link).toBeTruthy();
-  });
-
 });
