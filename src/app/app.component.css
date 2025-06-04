@@ -1,0 +1,10 @@
+mat-toolbar {
+  background: #3f51b5;
+  color: #fff;
+}
+
+mat-toolbar a {
+  margin-right: 1rem;
+  text-decoration: none;
+  color: inherit;
+}
