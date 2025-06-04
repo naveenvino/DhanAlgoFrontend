@@ -26,11 +26,11 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('DhanAlgoFrontend');
   });
 
-  it('should render Profile link in nav', () => {
-  const fixture = TestBed.createComponent(AppComponent);
-  fixture.detectChanges();
-  const compiled = fixture.nativeElement as HTMLElement;
-  expect(compiled.querySelector('nav')?.textContent).toContain('Profile');
-});
+  it('should render a link to the profile page', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('a[routerLink="/profile"]')).not.toBeNull();
+  });
 
 });
