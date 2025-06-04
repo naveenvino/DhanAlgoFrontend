@@ -27,10 +27,11 @@ describe('AppComponent', () => {
   });
 
   it('should render Profile link in nav', () => {
-  const fixture = TestBed.createComponent(AppComponent);
-  fixture.detectChanges();
-  const compiled = fixture.nativeElement as HTMLElement;
-  expect(compiled.querySelector('nav')?.textContent).toContain('Profile');
-});
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    const profileLink = compiled.querySelector('a[routerLink="/profile"]');
+    expect(profileLink).toBeTruthy();
+  });
 
 });
