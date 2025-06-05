@@ -14,6 +14,10 @@ You can change these values in
 ## Prerequisites
 
 - Node.js **12.14** or newer (Node 14 is recommended)
+- If using Node **17** or newer, run commands with the environment variable
+  `NODE_OPTIONS=--openssl-legacy-provider` to avoid
+  `ERR_OSSL_EVP_UNSUPPORTED` build failures. This flag is already included in
+  the provided npm scripts.
 - [Angular CLI](https://angular.io/cli) **12.0.1** (`npm install -g @angular/cli@12`)
 
 ## Installation
