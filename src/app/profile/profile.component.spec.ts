@@ -30,7 +30,13 @@ describe('ProfileComponent', () => {
   }
 
   it('should render profile data from the service', () => {
-    const mockProfile: UserProfile = { name: 'Jane', email: 'jane@example.com', clientId: 'CID123' };
+    const mockProfile: UserProfile = {
+      dhanClientId: '1106882707',
+      tokenValidity: '25/06/2025 16:39',
+      activeSegment: 'Equity',
+      ddpi: 'Deactive',
+      dataPlan: 'Deactive'
+    };
     dhanService.getUserProfile.and.returnValue(of(mockProfile));
 
     createComponent();
@@ -38,10 +44,12 @@ describe('ProfileComponent', () => {
 
     const compiled = fixture.nativeElement as HTMLElement;
     const fields = compiled.querySelectorAll('.field');
-    expect(fields.length).toBe(3);
-    expect(fields[0].textContent).toContain('Jane');
-    expect(fields[1].textContent).toContain('jane@example.com');
-    expect(fields[2].textContent).toContain('CID123');
+    expect(fields.length).toBe(5);
+    expect(fields[0].textContent).toContain('1106882707');
+    expect(fields[1].textContent).toContain('25/06/2025 16:39');
+    expect(fields[2].textContent).toContain('Equity');
+    expect(fields[3].textContent).toContain('Deactive');
+    expect(fields[4].textContent).toContain('Deactive');
   });
 
   it('should display an error message on service error', waitForAsync(() => {
