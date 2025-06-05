@@ -2,8 +2,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.1.
 It includes a simple integration with the `trdauto` backend API. The default API
-base URL is `http://localhost:5037/api` and can be changed in
-`src/environments/environment.ts`.
+base URLs are defined in the Angular environment files:
+
+- **Development:** `https://localhost:7288/api`
+- **Production:** `http://localhost:5037/api`
+
+You can change these values in
+`src/environments/environment.ts` and
+`src/environments/environment.prod.ts`.
 
 ## Prerequisites
 
