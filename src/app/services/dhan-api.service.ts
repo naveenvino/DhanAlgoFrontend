@@ -18,6 +18,6 @@ export class DhanApiService {
   constructor(private http: HttpClient) {}
 
   getUserProfile(): Observable<UserProfile> {
-    return this.http.get<UserProfile>(`${this.baseUrl}/TestDhan/profile`);
+    return this.http.get<UserProfile>(`${this.baseUrl}/profile`);
   }
 }
