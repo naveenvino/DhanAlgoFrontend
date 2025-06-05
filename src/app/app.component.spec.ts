@@ -30,12 +30,6 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('DhanAlgoFrontend');
   });
 
-  it('should render a button to the profile page', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('button[routerLink="/profile"]')).not.toBeNull();
-  });
 
   it('should render profile button with routerLink="/profile"', () => {
     const fixture = TestBed.createComponent(AppComponent);
