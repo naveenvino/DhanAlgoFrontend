@@ -4,9 +4,11 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 export interface UserProfile {
-  name: string;
-  email: string;
-  clientId: string;
+  dhanClientId: string;
+  tokenValidity: string;
+  activeSegment: string;
+  ddpi: string;
+  dataPlan: string;
 }
 
 @Injectable({
