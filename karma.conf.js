@@ -1,8 +1,5 @@
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
-// Use Puppeteer to provide a Chromium binary for headless tests
-process.env.CHROME_BIN = require('puppeteer').executablePath();
-
 // Use Puppeteer-provided Chromium for headless tests
 process.env.CHROME_BIN = require('puppeteer').executablePath();
 
