@@ -3,6 +3,9 @@
 // Use Puppeteer to provide a Chromium binary for headless tests
 process.env.CHROME_BIN = require('puppeteer').executablePath();
 
+// Use Puppeteer-provided Chromium for headless tests
+process.env.CHROME_BIN = require('puppeteer').executablePath();
+
 module.exports = function (config) {
   config.set({
     basePath: '',
