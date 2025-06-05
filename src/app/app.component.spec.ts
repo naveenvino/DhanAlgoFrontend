@@ -34,14 +34,14 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('button[routerLink="/profile"]')).not.toBeNull();
+    expect(compiled.querySelector('a[routerLink="/profile"]')).not.toBeNull();
   });
 
   it('should render profile button with routerLink="/profile"', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    const button = compiled.querySelector('button[routerLink="/profile"]');
+    const button = compiled.querySelector('a[routerLink="/profile"]');
     expect(button).not.toBeNull();
   });
 });
