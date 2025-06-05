@@ -1,0 +1,8 @@
+<mat-card class="profile-card">
+  <div *ngIf="profile">
+    <div class="field"><span class="label">Name:</span>{{ profile.name }}</div>
+    <div class="field"><span class="label">Email:</span>{{ profile.email }}</div>
+    <div class="field"><span class="label">Client ID:</span>{{ profile.clientId }}</div>
+  </div>
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+</mat-card>
