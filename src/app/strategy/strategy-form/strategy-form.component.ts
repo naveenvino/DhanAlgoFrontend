@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-strategy-form',
@@ -50,7 +51,9 @@ export class StrategyFormComponent {
   submit(): void {
     if (this.form.valid) {
       const legs = this.legs.value;
-      this.http.post('/api/strategy/execute', { legs }).subscribe();
+      this.http
+        .post(`${environment.apiUrl}/strategy/execute`, { legs })
+        .subscribe();
     }
   }
 }

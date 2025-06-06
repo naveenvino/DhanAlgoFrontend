@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 export interface AlertLogEntry {
   time: string;
@@ -13,9 +14,11 @@ export interface AlertLogEntry {
   providedIn: 'root'
 })
 export class AlertLogService {
+  private baseUrl = environment.apiUrl;
+
   constructor(private http: HttpClient) {}
 
   getRecentAlerts(): Observable<AlertLogEntry[]> {
-    return this.http.get<AlertLogEntry[]>('/api/alerts/recent');
+    return this.http.get<AlertLogEntry[]>(`${this.baseUrl}/alerts/recent`);
   }
 }
