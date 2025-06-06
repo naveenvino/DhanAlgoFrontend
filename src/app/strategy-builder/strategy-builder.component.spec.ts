@@ -8,10 +8,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { StrategyBuilderComponent } from './strategy-builder.component';
 import { StrategyBuilderService, OptionChainEntry, StrategyLeg } from '../services/strategy-builder.service';
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
 
 describe('StrategyBuilderComponent', () => {
   let component: StrategyBuilderComponent;
@@ -32,7 +35,9 @@ describe('StrategyBuilderComponent', () => {
         MatButtonModule,
         MatCardModule,
         MatTableModule,
-        NoopAnimationsModule
+        NoopAnimationsModule,
+        DragDropModule,
+        MatIconModule
       ],
       declarations: [StrategyBuilderComponent],
       providers: [
@@ -75,6 +80,30 @@ describe('StrategyBuilderComponent', () => {
     const args = service.placeStrategy.calls.mostRecent().args[0];
     expect(args.length).toBe(1);
     expect(args[0]).toEqual(jasmine.objectContaining({ action: 'BUY', quantity: 1, strike: 100, optionType: 'CE' }));
+  });
+
+  it('should remove a leg', () => {
+    createComponent();
+    component.addLeg();
+    component.addLeg();
+
+    expect(component.legs.length).toBe(2);
+    component.removeLeg(0);
+    expect(component.legs.length).toBe(1);
+  });
+
+  it('should reorder legs on drop', () => {
+    createComponent();
+    component.addLeg();
+    component.addLeg();
+    component.legs.at(0).patchValue({ strike: 100 });
+    component.legs.at(1).patchValue({ strike: 200 });
+
+    const event = { previousIndex: 0, currentIndex: 1 } as CdkDragDrop<string[]>;
+    component.drop(event);
+
+    expect(component.legs.at(0).value.strike).toBe(200);
+    expect(component.legs.at(1).value.strike).toBe(100);
   });
 
   it('should show success message when strategy placed', fakeAsync(() => {

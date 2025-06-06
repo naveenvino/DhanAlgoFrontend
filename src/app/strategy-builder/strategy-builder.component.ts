@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { StrategyBuilderService, StrategyLeg, OptionChainEntry } from '../services/strategy-builder.service';
 import { Observable } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -44,6 +45,16 @@ export class StrategyBuilderComponent {
         optionType: ['CE', Validators.required]
       })
     );
+  }
+
+  removeLeg(index: number): void {
+    this.legs.removeAt(index);
+  }
+
+  drop(event: CdkDragDrop<string[]>): void {
+    const prev = this.legs.at(event.previousIndex);
+    this.legs.removeAt(event.previousIndex);
+    this.legs.insert(event.currentIndex, prev);
   }
 
   submit(): void {

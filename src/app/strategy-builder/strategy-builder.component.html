@@ -10,8 +10,8 @@
 
 <mat-card>
   <form [formGroup]="form">
-  <div formArrayName="legs">
-    <div *ngFor="let leg of legs.controls; let i = index" [formGroupName]="i" class="leg-row">
+  <div formArrayName="legs" cdkDropList (cdkDropListDropped)="drop($event)">
+    <div *ngFor="let leg of legs.controls; let i = index" [formGroupName]="i" class="leg-row" cdkDrag>
       <mat-form-field appearance="fill">
         <mat-label>Action</mat-label>
         <mat-select formControlName="action">
@@ -34,6 +34,9 @@
           <mat-option value="PE">PE</mat-option>
         </mat-select>
       </mat-form-field>
+      <button mat-icon-button color="warn" type="button" (click)="removeLeg(i)" aria-label="Remove leg">
+        <mat-icon>delete</mat-icon>
+      </button>
     </div>
   </div>
   <button mat-button (click)="addLeg()">Add Leg</button>
