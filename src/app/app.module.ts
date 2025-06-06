@@ -5,17 +5,23 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { StrategyBuilderComponent } from './strategy-builder/strategy-builder.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProfileComponent,
-    DashboardComponent
+    DashboardComponent,
+    StrategyBuilderComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +30,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
-    MatTableModule
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
