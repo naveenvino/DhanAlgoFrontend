@@ -39,6 +39,14 @@ The API base URL for development is set in `src/environments/environment.ts`.
 For production builds it is defined in `src/environments/environment.prod.ts`.
 Update these files to point the application to a different backend.
 
+## Authentication
+
+An experimental authentication module is provided under `src/app/auth`. The
+`LoginComponent` posts credentials to `${environment.apiUrl}/auth/login` and
+stores the returned JWT token in `localStorage`. All outgoing HTTP requests
+automatically include this token via an `AuthInterceptor`, which also displays
+errors using Angular Material snack bars.
+
 ## Development server
 
 Run `npm start` (or `ng serve`) for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

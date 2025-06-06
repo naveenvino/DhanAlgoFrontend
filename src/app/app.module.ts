@@ -12,6 +12,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AuthModule } from './auth/auth.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -48,6 +49,7 @@ import { StrategyBuilderModule } from './strategy/strategy-builder.module';
     ReactiveFormsModule,
     MatSnackBarModule,
     DragDropModule,
+    AuthModule,
     StrategyBuilderModule
   ],
   providers: [],
