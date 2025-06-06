@@ -38,6 +38,26 @@ Update these files to point the application to a different backend.
 
 Run `npm start` (or `ng serve`) for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+## Strategy Builder
+
+The application exposes an experimental strategy builder at the `/builder` route
+(also reachable via the **Strategy Builder** link in the toolbar). It allows you
+to load option chain data, compose multi-leg option strategies and submit them
+to the backend API for execution.
+
+### Angular Material prerequisites
+
+The builder relies on several Angular Material components. Ensure the following
+modules are available (they are imported in `AppModule` by default):
+
+- `MatCardModule`
+- `MatFormFieldModule`
+- `MatInputModule`
+- `MatSelectModule`
+- `MatButtonModule`
+- `MatTableModule`
+- `MatSnackBarModule`
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
