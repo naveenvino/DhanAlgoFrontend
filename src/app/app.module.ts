@@ -15,13 +15,15 @@ import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { StrategyBuilderComponent } from './strategy-builder/strategy-builder.component';
+import { OrderbookComponent } from './orderbook/orderbook.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProfileComponent,
     DashboardComponent,
-    StrategyBuilderComponent
+    StrategyBuilderComponent,
+    OrderbookComponent
   ],
   imports: [
     BrowserModule,
