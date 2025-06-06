@@ -7,8 +7,13 @@ base URLs are defined in the Angular environment files:
 - **Development:** `https://localhost:7288/api/TestDhan`
 - **Production:** `http://localhost:5037/api/TestDhan`
 
-You can change these values in
-`src/environments/environment.ts` and
+Websocket URLs for real-time notifications are also defined in the environment
+files:
+
+- **Development WS:** `wss://localhost:7288/ws/notifications`
+- **Production WS:** `ws://localhost:5037/ws/notifications`
+
+You can change these values in `src/environments/environment.ts` and
 `src/environments/environment.prod.ts`.
 
 ## Prerequisites
