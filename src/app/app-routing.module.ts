@@ -7,6 +7,7 @@ import { StrategyFormComponent } from './strategy/strategy-form/strategy-form.co
 import { OrderbookComponent } from './orderbook/orderbook.component';
 import { OptionsChainComponent } from './options-chain/options-chain.component';
 import { AlertLogComponent } from './alert-log/alert-log.component';
+import { LoginComponent } from './auth/login.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'profile', pathMatch: 'full' },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'strategy', component: StrategyFormComponent },
   { path: 'orders', component: OrderbookComponent },
   { path: 'options-chain', component: OptionsChainComponent },
-  { path: 'alerts', component: AlertLogComponent }
+  { path: 'alerts', component: AlertLogComponent },
+  { path: 'login', component: LoginComponent }
 ];
 
 @NgModule({
