@@ -38,6 +38,8 @@ Update these files to point the application to a different backend.
 
 Run `npm start` (or `ng serve`) for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+> **Note**: A 404 at `http://localhost:4200/` usually means `npm start` (or `ng serve`) isn't running.
+
 ## Strategy Builder
 
 The application exposes an experimental strategy builder at the `/builder` route
