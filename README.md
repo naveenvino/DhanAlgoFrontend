@@ -73,6 +73,16 @@ modules are available (they are imported in `AppModule` by default):
 - `MatTableModule`
 - `MatSnackBarModule`
 
+## Analytics and Risk Management
+
+Two additional modules provide performance charts and margin settings.
+
+- Navigate to `/analytics` to see a sample bar chart using **ngx-charts**.
+- Navigate to `/risk` to configure maximum risk percentage and margin.
+
+Both routes are protected by the `AuthGuard` and lazy loaded to improve
+initial load time.
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.

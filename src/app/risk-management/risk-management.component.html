@@ -1,0 +1,11 @@
+<form [formGroup]="form" (ngSubmit)="save()">
+  <mat-form-field>
+    <mat-label>Max Risk %</mat-label>
+    <input matInput formControlName="maxRisk" type="number">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Margin</mat-label>
+    <input matInput formControlName="margin" type="number">
+  </mat-form-field>
+  <button mat-raised-button color="primary" type="submit">Save</button>
+</form>
