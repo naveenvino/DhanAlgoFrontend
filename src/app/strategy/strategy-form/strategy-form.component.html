@@ -1,0 +1,47 @@
+<mat-card>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div formArrayName="legs">
+      <div *ngFor="let leg of legs.controls; let i = index" [formGroupName]="i" class="leg-row">
+        <mat-form-field appearance="fill">
+          <mat-label>Type</mat-label>
+          <mat-select formControlName="type">
+            <mat-option value="Call">Call</mat-option>
+            <mat-option value="Put">Put</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Side</mat-label>
+          <mat-select formControlName="side">
+            <mat-option value="BUY">Buy</mat-option>
+            <mat-option value="SELL">Sell</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Strike</mat-label>
+          <input matInput type="number" formControlName="strike" />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Expiry</mat-label>
+          <input matInput formControlName="expiry" />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Qty</mat-label>
+          <input matInput type="number" formControlName="qty" />
+        </mat-form-field>
+        <button mat-icon-button color="warn" type="button" (click)="removeLeg(i)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+    <button mat-button type="button" (click)="addLeg()">Add Leg</button>
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+  </form>
+
+  <div class="summary">
+    <p>Margin Required: {{ summary.margin }}</p>
+    <p>Max Profit: {{ summary.maxProfit }}</p>
+    <p>Max Loss: {{ summary.maxLoss }}</p>
+  </div>
+
+  <app-payoff-graph [legs]="legs.value"></app-payoff-graph>
+</mat-card>
