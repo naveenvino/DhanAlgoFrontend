@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, fakeAsync, tick, discardPeriodicTasks } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { of } from 'rxjs';
 import { MatCardModule } from '@angular/material/card';
@@ -30,7 +30,7 @@ describe('AlertLogComponent', () => {
     component = fixture.componentInstance;
   }
 
-  it('should display alerts from the service', () => {
+  it('should display alerts from the service', fakeAsync(() => {
     const data: AlertLogEntry[] = [
       { time: 't', symbol: 'AAPL', action: 'BUY', status: 'received' }
     ];
@@ -38,9 +38,13 @@ describe('AlertLogComponent', () => {
 
     createComponent();
     fixture.detectChanges();
+    tick(1);
+    fixture.detectChanges();
+    tick(1);
     fixture.detectChanges();
 
     const rows = fixture.nativeElement.querySelectorAll('tr.mat-row');
     expect(rows.length).toBe(1);
-  });
+    discardPeriodicTasks();
+  }));
 });

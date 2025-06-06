@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { AlertLogService, AlertLogEntry } from './alert-log.service';
+import { environment } from '../../environments/environment';
 
 describe('AlertLogService', () => {
   let service: AlertLogService;
@@ -26,7 +27,7 @@ describe('AlertLogService', () => {
     let response: AlertLogEntry[] | undefined;
     service.getRecentAlerts().subscribe(res => (response = res));
 
-    const req = http.expectOne('/api/alerts/recent');
+    const req = http.expectOne(`${environment.apiUrl}/alerts/recent`);
     expect(req.request.method).toBe('GET');
     req.flush(mock);
     expect(response).toEqual(mock);
