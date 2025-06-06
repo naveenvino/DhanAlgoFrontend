@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { of } from 'rxjs';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { StrategyBuilderComponent } from './strategy-builder.component';
 import { StrategyBuilderService, OptionChainEntry, StrategyLeg } from '../services/strategy-builder.service';
@@ -16,9 +17,11 @@ describe('StrategyBuilderComponent', () => {
   let component: StrategyBuilderComponent;
   let fixture: ComponentFixture<StrategyBuilderComponent>;
   let service: jasmine.SpyObj<StrategyBuilderService>;
+  let snackBar: jasmine.SpyObj<MatSnackBar>;
 
   beforeEach(async () => {
     const spy = jasmine.createSpyObj('StrategyBuilderService', ['getOptionChain', 'placeStrategy']);
+    const snackSpy = jasmine.createSpyObj('MatSnackBar', ['open']);
 
     await TestBed.configureTestingModule({
       imports: [
@@ -32,10 +35,14 @@ describe('StrategyBuilderComponent', () => {
         NoopAnimationsModule
       ],
       declarations: [StrategyBuilderComponent],
-      providers: [{ provide: StrategyBuilderService, useValue: spy }]
+      providers: [
+        { provide: StrategyBuilderService, useValue: spy },
+        { provide: MatSnackBar, useValue: snackSpy }
+      ]
     }).compileComponents();
 
     service = TestBed.inject(StrategyBuilderService) as jasmine.SpyObj<StrategyBuilderService>;
+    snackBar = TestBed.inject(MatSnackBar) as jasmine.SpyObj<MatSnackBar>;
   });
 
   function createComponent() {
@@ -57,7 +64,7 @@ describe('StrategyBuilderComponent', () => {
   });
 
   it('should send legs to service', () => {
-    service.placeStrategy.and.returnValue(of());
+    service.placeStrategy.and.returnValue(of(undefined));
     createComponent();
     component.addLeg();
     component.legs.at(0).patchValue({ quantity: 1, strike: 100 });
@@ -69,4 +76,17 @@ describe('StrategyBuilderComponent', () => {
     expect(args.length).toBe(1);
     expect(args[0]).toEqual(jasmine.objectContaining({ action: 'BUY', quantity: 1, strike: 100, optionType: 'CE' }));
   });
+
+  it('should show success message when strategy placed', fakeAsync(() => {
+    service.placeStrategy.and.returnValue(of(undefined));
+    createComponent();
+    component.addLeg();
+    component.legs.at(0).patchValue({ quantity: 1, strike: 100 });
+    component.form.get('symbol')?.setValue('NIFTY');
+
+    component.submit();
+    tick();
+
+    expect(snackBar.open).toHaveBeenCalledWith('Strategy placed successfully', 'Close', { duration: 3000 });
+  }));
 });

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StrategyBuilderService, StrategyLeg, OptionChainEntry } from '../services/strategy-builder.service';
 import { Observable } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-strategy-builder',
@@ -16,7 +17,11 @@ export class StrategyBuilderComponent {
     return this.form.get('legs') as FormArray;
   }
 
-  constructor(private fb: FormBuilder, private service: StrategyBuilderService) {
+  constructor(
+    private fb: FormBuilder,
+    private service: StrategyBuilderService,
+    private snackBar: MatSnackBar
+  ) {
     this.form = this.fb.group({
       symbol: ['', Validators.required],
       legs: this.fb.array([])
@@ -44,7 +49,18 @@ export class StrategyBuilderComponent {
   submit(): void {
     if (this.form.valid) {
       const legs = this.legs.value as StrategyLeg[];
-      this.service.placeStrategy(legs).subscribe();
+      this.service.placeStrategy(legs).subscribe({
+        next: () => {
+          this.snackBar.open('Strategy placed successfully', 'Close', {
+            duration: 3000
+          });
+        },
+        error: () => {
+          this.snackBar.open('Failed to place strategy', 'Close', {
+            duration: 3000
+          });
+        }
+      });
     }
   }
 }
