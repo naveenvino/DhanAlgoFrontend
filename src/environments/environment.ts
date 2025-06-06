@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://localhost:7288/api/TestDhan'
+  apiUrl: 'https://localhost:7288/api/TestDhan',
+  wsUrl: 'wss://localhost:7288/ws/notifications'
 };
 
 /*
