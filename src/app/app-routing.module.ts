@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { StrategyBuilderComponent } from './strategy-builder/strategy-builder.component';
 import { OrderbookComponent } from './orderbook/orderbook.component';
 import { OptionsChainComponent } from './options-chain/options-chain.component';
+import { AlertLogComponent } from './alert-log/alert-log.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'profile', pathMatch: 'full' },
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'builder', component: StrategyBuilderComponent },
   { path: 'orders', component: OrderbookComponent },
-  { path: 'options-chain', component: OptionsChainComponent }
+  { path: 'options-chain', component: OptionsChainComponent },
+  { path: 'alerts', component: AlertLogComponent }
 ];
 
 @NgModule({
