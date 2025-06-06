@@ -19,6 +19,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { StrategyBuilderComponent } from './strategy-builder/strategy-builder.component';
 import { OrderbookComponent } from './orderbook/orderbook.component';
+import { OptionsChainComponent } from './options-chain/options-chain.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { OrderbookComponent } from './orderbook/orderbook.component';
     ProfileComponent,
     DashboardComponent,
     StrategyBuilderComponent,
-    OrderbookComponent
+    OrderbookComponent,
+    OptionsChainComponent
   ],
   imports: [
     BrowserModule,
