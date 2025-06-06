@@ -1,0 +1,10 @@
+.full-width {
+  width: 100%;
+}
+
+.leg-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
