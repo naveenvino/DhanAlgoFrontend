@@ -1,0 +1,9 @@
+.graph-placeholder {
+  height: 200px;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+  font-style: italic;
+}

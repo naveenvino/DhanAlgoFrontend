@@ -21,6 +21,7 @@ import { StrategyBuilderComponent } from './strategy-builder/strategy-builder.co
 import { OrderbookComponent } from './orderbook/orderbook.component';
 import { OptionsChainComponent } from './options-chain/options-chain.component';
 import { AlertLogComponent } from './alert-log/alert-log.component';
+import { StrategyBuilderModule } from './strategy/strategy-builder.module';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { AlertLogComponent } from './alert-log/alert-log.component';
     MatIconModule,
     ReactiveFormsModule,
     MatSnackBarModule,
-    DragDropModule
+    DragDropModule,
+    StrategyBuilderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
