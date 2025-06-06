@@ -81,6 +81,20 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
+## Docker
+
+You can build and run the project in a container using the provided `Dockerfile`.
+
+```bash
+# Build the image
+docker build -t dhan-algo-frontend .
+
+# Run the container and expose it on http://localhost:4200
+docker run --rm -p 4200:80 dhan-algo-frontend
+```
+
+Alternatively, use `docker-compose up` to build and start the container.
+
 ## Running unit tests
 
 Run `npm test` (or `ng test`) to execute the unit tests via [Karma](https://karma-runner.github.io).
