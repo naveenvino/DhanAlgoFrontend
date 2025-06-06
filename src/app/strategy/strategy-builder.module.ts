@@ -9,6 +9,8 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { StrategyFormComponent } from './strategy-form/strategy-form.component';
 import { PayoffGraphComponent } from './payoff-graph/payoff-graph.component';
+import { MatIconModule } from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [StrategyFormComponent, PayoffGraphComponent],
@@ -19,7 +21,8 @@ import { PayoffGraphComponent } from './payoff-graph/payoff-graph.component';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ],
   exports: [StrategyFormComponent]
 })
