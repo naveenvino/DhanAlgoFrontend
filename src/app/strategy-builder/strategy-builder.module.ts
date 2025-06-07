@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { StrategyBuilderComponent } from './strategy-builder.component';
 import { StrategyBuilderRoutingModule } from './strategy-builder-routing.module';
@@ -22,6 +23,7 @@ import { StrategyBuilderRoutingModule } from './strategy-builder-routing.module'
     MatSelectModule,
     MatButtonModule,
     MatIconModule,
+    MatTableModule,
     DragDropModule,
     StrategyBuilderRoutingModule
   ]
