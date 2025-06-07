@@ -1,16 +1,16 @@
 <mat-card class="profile-card">
-  <div *ngIf="profile">
+  <div *ngIf="profile as p">
     <div class="field">
-      <span class="label">Dhan Client ID:</span>{{ profile.dhanClientId }}
+      <span class="label">Dhan Client ID:</span>{{ p.dhanClientId }}
     </div>
     <div class="field">
-      <span class="label">Token Validity:</span>{{ profile.tokenValidity }}
+      <span class="label">Token Validity:</span>{{ p.tokenValidity }}
     </div>
     <div class="field">
-      <span class="label">Active Segment:</span>{{ profile.activeSegment }}
+      <span class="label">Active Segment:</span>{{ p.activeSegment }}
     </div>
-    <div class="field"><span class="label">DDPI:</span>{{ profile.ddpi }}</div>
-    <div class="field"><span class="label">Data Plan:</span>{{ profile.dataPlan }}</div>
+    <div class="field"><span class="label">DDPI:</span>{{ p.ddpi }}</div>
+    <div class="field"><span class="label">Data Plan:</span>{{ p.dataPlan }}</div>
   </div>
   <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
 </mat-card>
